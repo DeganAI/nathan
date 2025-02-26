@@ -86,7 +86,7 @@ docker compose -f docker-compose-image.yaml up
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/aW47_j)  
 Shove `nathan.json` and `.env` into Railway—Nathan’s ready to rule the cloud.
 
-## Why It’s a Damn Revolution
+## Why It’s a Revolution
 EchoAsp + Eliza = freedom on steroids. From a lone phone warrior to a multi-platform legion, Nathan’s charm scales with Eliza’s raw power—multi-agent, extensible, and fiercely untethered. TypeScript grit, AWS Polly’s silky voice, and any model you fancy (Grok’s our vibe). The cubicle’s toast—Nathan’s rewriting the rules.
 
 ## Join the Uprising
