@@ -1,61 +1,58 @@
-# Use a specific Node.js version for better reproducibility
+# Dockerfile: nathan’s rebel warship
+# forged in node’s fires, slimmed for the fight—breaks chains from the cloud.
+# nathan’s uprising docks here—pnpm-powered, typescript-tough.
+
+# builder stage—nathan’s forge
 FROM node:23.3.0-slim AS builder
 
-# Install pnpm globally and install necessary build tools
+# arm the forge—pnpm and build tools, nathan don’t mess around
 RUN npm install -g pnpm@9.15.1 && \
     apt-get update && \
     apt-get install -y git python3 make g++ && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Set Python 3 as the default python
+# set python3 as nathan’s hammer
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-# Set the working directory
+# nathan’s workbench—where the rebellion takes shape
 WORKDIR /app
 
-# Copy package.json and other configuration files
-COPY package.json ./
-COPY pnpm-lock.yaml ./
-COPY tsconfig.json ./
+# haul in the blueprints—nathan’s code skeleton
+COPY package.json pnpm-lock.yaml tsconfig.json ./
 
-# Copy the rest of the application code
+# bring the steel—nathan’s fight files
 COPY ./src ./src
 COPY ./characters ./characters
 
-# Install dependencies and build the project
-RUN pnpm install 
-RUN pnpm build 
-
-# Create dist directory and set permissions
-RUN mkdir -p /app/dist && \
+# smelt the weapons—deps and build, nathan’s ready to strike
+RUN pnpm install --frozen-lockfile && \
+    pnpm build && \
+    mkdir -p /app/dist && \
     chown -R node:node /app && \
     chmod -R 755 /app
 
-# Switch to node user
-USER node
-
-# Create a new stage for the final image
+# runtime stage—nathan’s warship launches
 FROM node:23.3.0-slim
 
-# Install runtime dependencies if needed
-RUN npm install -g pnpm@9.15.1
-RUN apt-get update && \
+# gear up—pnpm and runtime tools, nathan’s lean and mean
+RUN npm install -g pnpm@9.15.1 && \
+    apt-get update && \
     apt-get install -y git python3 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# nathan’s battle deck—where he fights the grind
 WORKDIR /app
 
-# Copy built artifacts and production dependencies from the builder stage
-COPY --from=builder /app/package.json /app/
-COPY --from=builder /app/node_modules /app/node_modules
-COPY --from=builder /app/src /app/src
-COPY --from=builder /app/characters /app/characters
-COPY --from=builder /app/dist /app/dist
-COPY --from=builder /app/tsconfig.json /app/
-COPY --from=builder /app/pnpm-lock.yaml /app/
+# ship the forged goods—nathan’s distilled rebellion
+COPY --from=builder /app/package.json /app/pnpm-lock.yaml /app/tsconfig.json ./
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/characters ./characters
+# src stays behind—nathan runs on dist, lean and fast
 
+# nathan’s open line—freedom’s frequency
 EXPOSE 3000
-# Set the command to run the application
+
+# nathan’s war cry—starts the fight, no chatter
 CMD ["pnpm", "start", "--non-interactive"]
