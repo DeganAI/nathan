@@ -1,10 +1,8 @@
 # Nathan: The Call Center Liberator, Powered by Eliza
 
-meet **Nathan**, a TypeScript-forged phoenix now soaring on **Eliza**’s cosmic stage—an AI OS that turns rebellion into revolution. Born from the mind of natefrog and xAI’s wild spark, Nathan, our digital liberator, answers RingCentral calls with velvet charm, books zoom demonstrations, and shatters the 9-to-5 chains. With Eliza, he’s unbound—tweeting on X, chatting on Discord, a multi-platform maestro of freedom.
+meet **Nathan**, a TypeScript-forged phoenix now soaring on **Eliza**’s cosmic stage—an AI OS that turns rebellion into revolution. Born from the mind of natefrog and xAI’s wild spark, Nathan, our digital liberator, answers RingCentral calls with velvet charm, books zoom demonstrations, and shatters the 9-to-5 chains. With Eliza, he’s unbound—tweeting on X, chatting on Discord, a multi-platform maestro of freedom, and a middle finger to monotony.
 
-*a middle finger to monotony.*
-
-## Meet Nathan
+## Nathan wakes up
 - **His Soul**: A suave agent who greets callers with “Travel Focus and Fulfillment Group, this is Nathan,” pitches an 8-day, 7-night cruise, and saves every dream in Eliza’s living memory.
 - **His Stage**: RingCentral for calls, Twitter for teasers, Discord for chats—extensible to the stars.
 
