@@ -1,2 +1,14 @@
-.env
-.tee-cloud
+# .dockerignore: nathan’s cleanup crew
+# keeps the grind’s trash out of his docker rebellion.
+# nathan don’t haul dead weight—only freedom flies.
+
+.env              # nathan’s keyring—secrets stay local
+.tee-cloud        # mystery stash—nathan’s not shipping it (fix if typo)
+node_modules      # bloated baggage—nathan rebuilds fresh
+dist              # old war scars—nathan forges anew
+*.log             # chatter from the trenches—nathan keeps it quiet
+.git             # rebel history—nathan don’t need it packed
+.gitignore       # git’s rules—nathan’s got his own
+Dockerfile       # build orders—nathan follows, don’t bundle
+docker-compose*  # fleet plans—nathan runs ‘em, don’t ship ‘em
+data/            # nathan’s bunker—stays on the ground
