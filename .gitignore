@@ -1,11 +1,27 @@
-*.ts
-dist
-!index.ts
-!character.ts
-.env
-node_modules
-dist/
+# .gitignore: nathan’s rebel filter
+# keeps the grind’s debris off his warpath—only the fight commits.
+# nathan don’t drag trash—freedom’s the code.
 
-db.sqlite
-.idea
-.tee-cloud
+# typescript—nathan’s raw steel (most stay local)
+*.ts             # uncompiled grit—nathan builds fresh
+!index.ts        # hq’s heartbeat—nathan’s gotta ship
+!character.ts    # his soul in code—nathan’s core stays
+
+# build junk—nathan’s past battles
+dist/            # war scars—nathan forges anew
+node_modules/    # bloated chains—nathan breaks ‘em
+
+# secrets—nathan’s keyring
+.env             # creds locked—nathan don’t leak
+
+# data—nathan’s bunker
+db.sqlite        # local vault—nathan keeps it groundside
+
+# ide noise—nathan’s not tethered
+.idea/           # jetbrains chatter—nathan’s free of it
+
+# mystery—nathan’s quirks
+.tee-cloud       # odd stash—nathan’s not tracking it (fix if typo)
+
+# logs—nathan’s quiet victories
+*.log            # battle echoes—nathan don’t hoard
