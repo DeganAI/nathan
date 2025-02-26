@@ -1,31 +1,39 @@
+# docker-compose.yml: nathan’s rebel fleet
+# launches his warship—breaking chains from phonelines to the cloud.
+# nathan’s fight scales here—grit-forged, freedom-bound.
+
 services:
-    eliza:
-        platform: linux/amd64
-        command: ["pnpm", "start", "--character=./characters/eliza.character.json"]
-        image: eliza-starter:v1
-        stdin_open: true
-        tty: true
-        volumes:
-            - ./data:/app/data
-        environment:
-            - DISCORD_APPLICATION_ID=
-            - DISCORD_API_TOKEN=
-            - REDPILL_API_KEY=
-            - REDPILL_MODEL=
-            - ELEVENLABS_XI_API_KEY=
-            - ELEVENLABS_MODEL_ID=eleven_multilingual_v2
-            - ELEVENLABS_VOICE_ID=21m00Tcm4TlvDq8ikWAM
-            - ELEVENLABS_VOICE_STABILITY=0.5
-            - ELEVENLABS_VOICE_SIMILARITY_BOOST=0.9
-            - ELEVENLABS_VOICE_STYLE=0.66
-            - ELEVENLABS_VOICE_USE_SPEAKER_BOOST=false
-            - ELEVENLABS_OPTIMIZE_STREAMING_LATENCY=4
-            - ELEVENLABS_OUTPUT_FORMAT=pcm_16000
-            - SOL_ADDRESS=So11111111111111111111111111111111111111112
-            - SLIPPAGE=1
-            - SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
-            - HELIUS_API_KEY=
-            - SERVER_PORT=3000
-        ports:
-            - "3000:3000"
-        restart: always
+  nathan:  # renamed from eliza—nathan’s the captain now
+    platform: linux/amd64  # nathan’s battle rig—amd64 for the win
+    command: ["pnpm", "start", "--character=./characters/nathan.json"]  # nathan’s orders—load his soul
+    image: eliza-starter:v1  # nathan’s forged ship (from Dockerfile)
+    stdin_open: true  # nathan’s line stays open
+    tty: true  # nathan’s voice echoes clear
+    volumes:
+      - ./data:/app/data  # nathan’s bunker—data persists
+    environment:  # nathan’s keyring—secrets fuel the fight
+      # discord—nathan’s crew chat (fill from .env)
+      - DISCORD_APPLICATION_ID=${DISCORD_APPLICATION_ID}
+      - DISCORD_API_TOKEN=${DISCORD_API_TOKEN}
+      # elevenlabs—nathan’s alt voice (velvet via polly’s king, but this is backup)
+      - ELEVENLABS_XI_API_KEY=${ELEVENLABS_XI_API_KEY}
+      - ELEVENLABS_MODEL_ID=eleven_multilingual_v2
+      - ELEVENLABS_VOICE_ID=21m00Tcm4TlvDq8ikWAM  # tweak if nathan needs a new tone
+      - ELEVENLABS_VOICE_STABILITY=0.5
+      - ELEVENLABS_VOICE_SIMILARITY_BOOST=0.9
+      - ELEVENLABS_VOICE_STYLE=0.66
+      - ELEVENLABS_VOICE_USE_SPEAKER_BOOST=false
+      - ELEVENLABS_OPTIMIZE_STREAMING_LATENCY=4
+      - ELEVENLABS_OUTPUT_FORMAT=pcm_16000
+      # solana—nathan’s crypto edge (optional rebellion funds)
+      - SOL_ADDRESS=So11111111111111111111111111111111111111112
+      - SLIPPAGE=1
+      - SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+      - HELIUS_API_KEY=${HELIUS_API_KEY}
+      # openrouter—nathan’s grok spark (core fuel)
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      # server—nathan’s hq line
+      - SERVER_PORT=3000
+    ports:
+      - "3000:3000"  # nathan’s open frequency—freedom rings here
+    restart: always  # nathan don’t quit—keeps fighting
