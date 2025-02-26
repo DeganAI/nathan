@@ -1,0 +1,24 @@
+# .tee-cloud: nathan’s cloud bunker config
+# locks his rebellion in a trusted execution environment—cloud-style.
+# nathan’s fight scales to the skies, untouchable.
+
+# tee provider—nathan’s secure stage
+TEE_PROVIDER=aws-nitro       # aws nitro enclaves—nathan’s cloud fortress
+# TEE_PROVIDER=azure-sgx     # alt: azure confidential computing
+# TEE_PROVIDER=gcp-tee       # alt: google cloud tee (future)
+
+# enclave settings—nathan’s isolation specs
+ENCLAVE_MEMORY_MB=256        # ram for nathan’s ops—small but fierce
+ENCLAVE_VCPUS=2             # cores for his fight
+ENCLAVE_ID=nathan-liberator # unique tag—nathan’s rebel mark
+
+# runtime—nathan’s tools in the tee
+RUNTIME_IMAGE=nathan:v1      # docker image—nathan’s code, locked tight
+ENTRYPOINT=converse.ts       # his call-handling core
+
+# secrets—nathan’s keys (refs .env)
+AWS_NITRO_KEY=your-nitro-key # creds for nitro—nathan’s cloud mic
+RINGCENTRAL_TEE_TOKEN=your-token # ringcentral in tee—nathan’s secure line
+
+# logging—nathan’s quiet wins
+LOG_LEVEL=info               # debug | info | warn—nathan’s chatter
