@@ -1,8 +1,3 @@
-Here’s the full revised `README.md` for your forked `eliza-starter`, weaving EchoAsp’s gritty, poetic rebellion into Eliza’s cosmic framework. It’s tailored to your fork’s structure, reflects the integration of Nathan as a custom character, and keeps the soul of our masterpiece alive. This version builds on your existing README, blending in EchoAsp’s fire while preserving the starter’s practical setup instructions. Ready to ignite—here it is in its complete, rebellious glory:
-
----
-
-```markdown
 # EchoAsp: The Call Center Liberator, Powered by Eliza
 
 Welcome to **EchoAsp**, a TypeScript-forged phoenix now soaring on **Eliza**’s cosmic stage—an AI OS that turns rebellion into revolution. Born from natefrog’s caffeine-drenched genius and xAI’s wild spark, Nathan, our digital liberator, answers RingCentral calls with velvet charm, books dream cruises, and shatters the 9-to-5 chains. With Eliza, he’s unbound—tweeting on X, chatting on Discord, a multi-platform maestro of freedom.
