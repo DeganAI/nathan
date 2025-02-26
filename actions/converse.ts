@@ -1,81 +1,87 @@
-// converse.ts: The Heartbeat of Nathan’s Rebellion
-// A dance of words and dreams, where Nathan frees callers from the grind.
-// An Eliza action—timeless, bold, ready for the cosmos.
+// converse.ts: The Pulse of Nathan’s Uprising
+// A symphony of liberation, where Nathan unshackles callers from the grind.
+// Eliza’s timeless stage, wired for the cosmos, born to defy.
 
-import { synthesizeSpeech } from '../speech/speech'; // His velvet voice
-import { dataStore, ClientData } from '../data/dataStore'; // His scribe of souls
-import { promoTimes } from '../config/config'; // The rhythm of freedom
+import { synthesizeSpeech } from '../speech/speech'; // His voice, smooth as stardust
+import { dataStore, ClientData } from '../data/dataStore'; // His ledger of dreams
+import { promoTimes } from '../config/config'; // The cadence of freedom
 
 export async function converse(context: any) {
-  const { callSession, platform, character } = context; // Eliza’s stage—RingCentral for now
+  const { callSession, platform, character } = context; // Eliza’s arena—RingCentral today, the galaxy tomorrow
   const clientData: Partial<ClientData> = { callTimestamp: new Date().toISOString() };
+  
+  try {
+    // A spark flares—the caller steps into the unknown
+    console.log('Caller: Hi, I got this postcard in the mail, and I was wondering what it’s about.');
 
-  // The caller’s spark ignites the tale
-  console.log('Caller: Hi, I got this postcard in the mail, and I was wondering what it’s about.');
+    // Hunt the claim, the thread of their fate
+    const claimPrompt = 'Hey there! Got a claim ID on that postcard? It’s your golden ticket.';
+    await speak(claimPrompt, context);
+    clientData.claimId = (await listen(context))?.trim() || 'SAMPLE_CLAIM_123';
+    clientData.phoneNumber = callSession?.callerId || 'SAMPLE_PHONE';
 
-  // Seek the claim, a key to their destiny
-  const claimPrompt = 'Is there a claim ID number on that piece of mail?';
-  await speak(claimPrompt, context);
-  clientData.claimId = await listen(context) || 'SAMPLE_CLAIM_123';
-  clientData.phoneNumber = callSession?.callerId || 'SAMPLE_PHONE';
+    // Spin the vision—a cruise to torch their 9-to-5
+    const offer = character.pitch || 'Picture this: 8 days, 7 nights, a cruise that’ll make your soul sing. Ready to ditch the grind?';
+    await speak(offer, context);
 
-  // Paint the dream, a cruise to steal their breath
-  const offer = character.pitch; // From nathan.json
-  await speak(offer, context);
+    // Lay out the escape hatch—time to fly
+    console.log('Caller: OK, how do I sign up?');
+    const timeOptions = promoTimes.map(t => `${t.day} at ${t.time} PT`).join(', ');
+    const timePrompt = `Let’s lock it in. Slots are ${timeOptions}. When’s your breakout moment?`;
+    await speak(timePrompt, context);
+    const promoInput = (await listen(context)) || 'Wednesday 12:00 PT';
+    clientData.promoDateTime = validatePromoTime(promoInput) || promoInput;
 
-  // Offer the hour, a window to escape
-  console.log('Caller: OK, how do I sign up?');
-  const timeOptions = promoTimes.map(t => `${t.day} at ${t.time} PT`).join(', ');
-  const timePrompt = `I can reserve your spot. We’ve got ${timeOptions}. What works for you?`;
-  await speak(timePrompt, context);
-  const promoTime = await listen(context) || 'Wednesday 12:00 PT';
-  clientData.promoDateTime = validatePromoTime(promoTime) || promoTime;
+    // Weave their story, thread by thread
+    const emailPrompt = 'Where should I beam your Zoom link? Best email, go!';
+    await speak(emailPrompt, context);
+    clientData.email = (await listen(context))?.toLowerCase() || 'sample@example.com';
 
-  // Gather their essence, stitch by stitch
-  const emailPrompt = 'What’s the best email to send your confirmation to?';
-  await speak(emailPrompt, context);
-  clientData.email = await listen(context) || 'sample@example.com';
+    const firstNamePrompt = 'First name—what do they call you?';
+    await speak(firstNamePrompt, context);
+    clientData.firstName = (await listen(context)) || 'John';
 
-  const firstNamePrompt = 'And your first name, please?';
-  await speak(firstNamePrompt, context);
-  clientData.firstName = await listen(context) || 'John';
+    const lastNamePrompt = 'And your last name—seal the legend!';
+    await speak(lastNamePrompt, context);
+    clientData.lastName = (await listen(context)) || 'Doe';
 
-  const lastNamePrompt = 'Last name?';
-  await speak(lastNamePrompt, context);
-  clientData.lastName = await listen(context) || 'Doe';
+    // Forge the pact, etched in digital fire
+    const confirmation = `Boom—you’re in for ${clientData.promoDateTime}! Zoom details are headed to ${clientData.email}. Join with your spouse, laptop only—no phone slackers. Questions before takeoff?`;
+    await speak(confirmation, context);
 
-  // Seal the vow, a promise in the ether
-  const confirmation = `You’re all set for ${clientData.promoDateTime}. We’ll email you the Zoom details. Please join with your spouse on a laptop—no phones allowed. Any questions?`;
-  await speak(confirmation, context);
+    // Part with a blaze, igniting their day
+    console.log('Caller: OK, thank you');
+    const farewell = 'My pleasure, champ! Go crush it out there!';
+    await speak(farewell, context);
 
-  // Bid adieu, a spark to light their day
-  console.log('Caller: OK, thank you');
-  const farewell = 'My pleasure! Have a fantastic day!';
-  await speak(farewell, context);
-
-  // Carve their tale into memory’s stone
-  await dataStore.save(clientData as ClientData);
-  console.log('Client data saved:', clientData);
+    // Etch their saga into the void
+    await dataStore.save(clientData as ClientData);
+    console.log('Client locked in:', clientData);
+  } catch (error) {
+    console.error('The rebellion stumbled:', error);
+    await speak('Whoops—tech gremlins got me. Call back, and we’ll finish this epic!', context);
+  }
 }
 
-// Speak, oh rebel, let your voice take wing
+// Speak, oh liberator—your words reshape worlds
 async function speak(text: string, context: any) {
   const audio = await synthesizeSpeech(text);
-  await context.platform.playAudio(audio); // Hand off to the client
-  console.log('Nathan says:', text);
+  await context.platform.playAudio(audio); // Toss it to the platform’s winds
+  console.log('Nathan roars:', text);
 }
 
-// Listen, a canvas for their soul—soon to awaken
-async function listen(context: any): Promise<string> {
-  console.log('Listening...');
-  return 'SAMPLE_RESPONSE'; // Placeholder till Eliza’s ears bloom
-  // TODO: Tap Eliza’s STT when ready
+// Listen—catch their whispers, soon a chorus
+async function listen(context: any): Promise<string | undefined> {
+  console.log('Ears open, soul ready...');
+  // TODO: Unleash Eliza’s STT—speech to text, raw and real
+  return 'SAMPLE_RESPONSE'; // Placeholder ‘til the cosmos aligns
 }
 
-// Align the stars, validate their choice
+// Bend time to their will—or nudge ‘em back
 function validatePromoTime(input: string): string | undefined {
-  const normalized = input.toLowerCase();
-  return promoTimes.find(t => normalized.includes(t.day.toLowerCase()) && normalized.includes(t.time.toLowerCase()))
-    ? `${input}`
-    : undefined;
+  const normalized = input.toLowerCase().replace(/\s+/g, '');
+  const match = promoTimes.find(t => 
+    normalized.includes(t.day.toLowerCase()) && normalized.includes(t.time.replace(':', '').toLowerCase())
+  );
+  return match ? `${match.day} ${match.time} PT` : undefined;
 }
