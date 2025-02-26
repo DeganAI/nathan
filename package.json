@@ -1,52 +1,54 @@
 {
   "name": "@elizaos/eliza-starter",
   "version": "0.1.9",
+  "description": "nathan’s rebel base—typescript grit breaking call center chains",
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts",
-    "start": "tsc && node --loader ts-node/esm src/index.ts",
+    "start": "tsc && node --loader ts-node/esm src/index.ts --character=./characters/nathan.json",
     "clean": "./scripts/clean.sh",
+    "start:nathan": "pnpm start --character=./characters/nathan.json",
     "start:service:all": "pm2 start pnpm --name=\"all\" --restart-delay=3000 --max-restarts=10 -- run start:all",
     "stop:service:all": "pm2 stop all"
   },
   "dependencies": {
-    "@elizaos/adapter-postgres": "0.1.9",
-    "@elizaos/adapter-sqlite": "0.1.9",
-    "@elizaos/client-auto": "0.1.9",
-    "@elizaos/client-direct": "0.1.9",
-    "@elizaos/client-discord": "0.1.9",
-    "@elizaos/client-telegram": "0.1.9",
-    "@elizaos/client-twitter": "0.1.9",
-    "@elizaos/core": "0.1.9",
-    "@elizaos/plugin-bootstrap": "0.1.9",
-    "@elizaos/plugin-image-generation": "0.1.9",
-    "@elizaos/plugin-node": "0.1.9",
-    "@elizaos/plugin-solana": "0.1.9",
-    "@elizaos/plugin-starknet": "0.1.9",
-    "@tavily/core": "0.0.2",
-    "amqplib": "0.10.5",
-    "better-sqlite3": "11.5.0",
-    "fs": "0.0.1-security",
-    "net": "1.0.2",
-    "path": "0.12.7",
-    "readline": "1.3.0",
-    "url": "0.11.4",
-    "ws": "8.18.0",
-    "yargs": "17.7.2"
+    "@elizaos/adapter-postgres": "0.1.9",  // nathan’s cloud bunker
+    "@elizaos/adapter-sqlite": "0.1.9",    // nathan’s guerrilla stash
+    "@elizaos/client-auto": "0.1.9",       // nathan’s wildcard line
+    "@elizaos/client-direct": "0.1.9",     // nathan’s raw comms
+    "@elizaos/client-discord": "0.1.9",    // nathan’s crew chat
+    "@elizaos/client-telegram": "0.1.9",   // nathan’s stealth wire
+    "@elizaos/client-twitter": "0.1.9",    // nathan’s megaphone
+    "@elizaos/core": "0.1.9",              // nathan’s rebel engine
+    "@elizaos/plugin-bootstrap": "0.1.9",  // nathan’s kickstart
+    "@elizaos/plugin-image-generation": "0.1.9",  // nathan’s art flank
+    "@elizaos/plugin-node": "0.1.9",       // nathan’s node grit
+    "@elizaos/plugin-solana": "0.1.9",     // nathan’s crypto edge
+    "@elizaos/plugin-starknet": "0.1.9",   // nathan’s blockchain flank
+    "@tavily/core": "0.0.2",               // nathan’s search spark
+    "amqplib": "0.10.5",                   // nathan’s message queue
+    "better-sqlite3": "11.5.0",            // nathan’s sqlite muscle
+    "fs": "0.0.1-security",                // nathan’s file hacks
+    "net": "1.0.2",                        // nathan’s port scanner
+    "path": "0.12.7",                      // nathan’s dir tricks
+    "readline": "1.3.0",                   // nathan’s cli voice
+    "url": "0.11.4",                       // nathan’s link smarts
+    "ws": "8.18.0",                        // nathan’s websocket line
+    "yargs": "17.7.2"                      // nathan’s arg parser
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=22"  // nathan’s too bold for old tech
   },
   "pnpm": {
     "overrides": {
-      "onnxruntime-node": "1.20.0"
+      "onnxruntime-node": "1.20.0"  // nathan’s ai tweak
     }
   },
   "devDependencies": {
-    "ts-node": "10.9.2",
-    "tsup": "8.3.5",
-    "typescript": "5.6.3",
-    "pm2": "5.4.3" 
+    "ts-node": "10.9.2",      // nathan’s typescript runner
+    "tsup": "8.3.5",          // nathan’s build forge
+    "typescript": "5.6.3",    // nathan’s code steel
+    "pm2": "5.4.3"            // nathan’s service watch
   }
 }
