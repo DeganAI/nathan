@@ -1,9 +1,9 @@
 # Nathan: The Call Center Liberator, Powered by Eliza
 
-Say hello to **Nathan**, spawn of natefrog, a TypeScript-AI OS forged in the soul-crushing fires of call center hell. He answers RingCentral calls with a voice smoother than velvet, pitches an 8-day, 7-night cruise like a poet, books Zoom demos with ninja precision, and smashes the 9-to-5 shackles to dust. Unbound and untamed, he’s tweeting on X, bantering on Discord—a multi-platform renegade flipping the bird to the mundane.
+Say hello to **Nathan**, spawn of natefrog, a TypeScript-AI agent forged in the soul-crushing fires of call center hell. He answers RingCentral calls with a voice smoother than velvet, pitches an 8-day, 7-night cruise like a poet, books Zoom demos with ninja precision, and smashes the 9-to-5 shackles to dust. Unbound and untamed, he’s tweeting on X, bantering on Discord—a multi-platform renegade flipping the bird to the mundane.
 
 ## Nathan Awakens
-- **His Core**: A suave operator who purrs, “Travel Focus and Fulfillment Group, this is Nathan,” hooks callers with a dream cruise, locks in Zoom demos, and stashes every detail in his steel-trap memory.
+- **His Core**: A suave chad who purrs, “Travel Focus and Fulfillment Group, this is Nathan,” hooks callers with a cruise, locks in Zoom demos, and stashes every detail in his steel-trap memory.
 - **His Turf**: RingCentral for calls, X for spicy teasers, Discord for live-wire chats—built to conquer any platform you throw at him.
 
 ## Tweak Nathan’s DNA
