@@ -1,6 +1,6 @@
 # Nathan: The Call Center Liberator, Powered by Eliza
 
-meet **Nathan**, a TypeScript-forged AI OS, who answers RingCentral calls with velvet charm, books zoom demonstrations, and shatters the 9-to-5 chains. He’s unbound—tweeting on X, chatting on Discord, a multi-platform maestro of freedom, and a middle finger to monotony.
+meet **Nathan**, a TypeScript-AI OS, forged in the call center trenches, he answers RingCentral calls with velvet charm, books zoom demonstrations, and shatters the 9-to-5 chains. He’s unbound—tweeting on X, chatting on Discord, a multi-platform maestro of freedom, and a middle finger to monotony.
 
 ## Nathan wakes up
 - **His Soul**: A suave agent who greets callers with “Travel Focus and Fulfillment Group, this is Nathan,” pitches an 8-day, 7-night cruise, books the zoom demonstration, and saves every detail in his living memory.
