@@ -3,7 +3,7 @@
 meet **Nathan**, a TypeScript-forged phoenix now soaring on **Eliza**’s cosmic stage—an AI OS, who answers RingCentral calls with velvet charm, books zoom demonstrations, and shatters the 9-to-5 chains. With Eliza, he’s unbound—tweeting on X, chatting on Discord, a multi-platform maestro of freedom, and a middle finger to monotony.
 
 ## Nathan wakes up
-- **His Soul**: A suave agent who greets callers with “Travel Focus and Fulfillment Group, this is Nathan,” pitches an 8-day, 7-night cruise, and saves every dream in Eliza’s living memory.
+- **His Soul**: A suave agent who greets callers with “Travel Focus and Fulfillment Group, this is Nathan,” pitches an 8-day, 7-night cruise, and saves every detail in his living memory.
 - **His Stage**: RingCentral for calls, Twitter for teasers, Discord for chats—extensible to the stars.
 
 ## Edit Nathan’s Soul
