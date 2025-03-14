@@ -1,24 +1,25 @@
 {
   "compilerOptions": {
-    "target": "ESNext", // nathan’s cutting edge—future-proof fight
-    "module": "ESNext", // nathan’s modular grit—modern and mean
-    "lib": ["ESNext", "dom"], // nathan’s toolkit—web and beyond
-    "moduleResolution": "Bundler", // nathan’s bundle smarts—tsup-ready
-    "outDir": "./dist", // nathan’s war chest—built steel lands here
-    "rootDir": "./src", // nathan’s battleground—src is his turf (was .)
-    "strict": false, // nathan’s loose—rules bend for the fight
-    "esModuleInterop": true, // nathan’s bridge—old js plays nice
-    "skipLibCheck": true, // nathan’s fast—skip the fluff
-    "forceConsistentCasingInFileNames": false, // nathan’s chill—case don’t slow him
-    "allowImportingTsExtensions": true, // nathan’s raw—ts imports roll free
-    "declaration": true, // nathan’s blueprint—shares his steel
-    "emitDeclarationOnly": true, // nathan’s lean—just the types, no bloat
-    "resolveJsonModule": true, // nathan’s soul—json configs (like nathan.json) load clean
-    "noImplicitAny": false, // nathan’s wild—any’s fine in the trenches
-    "allowJs": true, // nathan’s open—js scraps join the fray
-    "checkJs": false, // nathan’s quick—no js babysitting
-    "noEmitOnError": false, // nathan’s tough—builds through the pain
-    "moduleDetection": "force", // nathan’s firm—modules everywhere
-    "allowArbitraryExtensions": true // nathan’s free—weird files? bring it
-  }
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext", "dom"],
+    "moduleResolution": "Bundler",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": false,
+    "allowImportingTsExtensions": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "allowJs": true,
+    "checkJs": false,
+    "noEmitOnError": false,
+    "moduleDetection": "force",
+    "allowArbitraryExtensions": true
+  },
+  "include": ["src/**/*", "actions/**/*"]
 }
