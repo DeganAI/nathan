@@ -5,9 +5,8 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "railway": "pnpm install && tsc && node --loader ts-node/esm src/index.ts --non-interactive"
     "build": "tsup src/index.ts --format esm --dts",
-    "start": "tsc && node --loader ts-node/esm src/index.ts",
+    "start": "npx tsc && node --loader ts-node/esm src/index.ts --non-interactive",
     "clean": "./scripts/clean.sh",
     "start:nathan": "pnpm start --character=./characters/nathan.json",
     "start:service:all": "pm2 start pnpm --name=\"all\" --restart-delay=3000 --max-restarts=10 -- run start:all",
@@ -31,6 +30,7 @@
     "@ringcentral/sdk": "^5.0.3",
     "@tavily/core": "0.0.2",
     "amqplib": "0.10.5",
+    "better-sqlite3": "11.5.0",
     "fs": "0.0.1-security",
     "net": "1.0.2",
     "path": "0.12.7",
