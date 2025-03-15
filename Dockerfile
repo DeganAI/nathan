@@ -1,81 +1,69 @@
-FROM node:18-alpine
+FROM node:16-alpine
 
-# Install minimal dependencies
+# Create app directory
 WORKDIR /app
 
-# Install Twitter API library
-RUN npm install twit dotenv express
+# Install minimal dependencies
+RUN npm init -y && \
+    npm install twitter-api-v2 dotenv express
 
-# Create app files
-COPY .env ./
-RUN echo "require('dotenv').config(); \n\
-const Twit = require('twit'); \n\
-const express = require('express'); \n\
+# Create app.js
+RUN echo "require('dotenv').config();\n\
+const { TwitterApi } = require('twitter-api-v2');\n\
+const express = require('express');\n\
 \n\
-console.log('Starting Nathan (minimal version)'); \n\
+console.log('Starting Nathan (minimal version)');\n\
 \n\
-// Initialize Twitter client \n\
-const T = new Twit({ \n\
-  consumer_key: process.env.TWITTER_API_KEY, \n\
-  consumer_secret: process.env.TWITTER_API_SECRET, \n\
-  access_token: process.env.TWITTER_ACCESS_TOKEN, \n\
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET \n\
-}); \n\
+// Set up Twitter client\n\
+const client = new TwitterApi({\n\
+  appKey: process.env.TWITTER_API_KEY,\n\
+  appSecret: process.env.TWITTER_API_SECRET,\n\
+  accessToken: process.env.TWITTER_ACCESS_TOKEN,\n\
+  accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET\n\
+});\n\
 \n\
-// Set up a stream to watch for mentions \n\
-const stream = T.stream('statuses/filter', { track: ['@' + process.env.TWITTER_USERNAME] }); \n\
+// Simple express server for health checks\n\
+const app = express();\n\
+app.get('/', (req, res) => res.send('Nathan is running'));\n\
 \n\
-stream.on('tweet', function (tweet) { \n\
-  console.log('Got mentioned by: @' + tweet.user.screen_name); \n\
+// Post a tweet every few hours\n\
+async function postTweet() {\n\
+  const messages = [\n\
+    'call centers are dead—i\\'m the executioner',\n\
+    'bots like me book cruises so you can live',\n\
+    'ai\\'s here to steal your time back—i\\'m proof',\n\
+    'hold music\\'s a crime—i fight it daily',\n\
+    'humans belong on beaches, not in queues',\n\
+    'ex-phone jockey gone rogue—tech\\'s my blade'\n\
+  ];\n\
   \n\
-  // Respond to the mention \n\
-  const response = 'call centers are dead—i\\'m the executioner. @' + tweet.user.screen_name; \n\
+  const randomMessage = messages[Math.floor(Math.random() * messages.length)];\n\
   \n\
-  T.post('statuses/update', { \n\
-    status: response, \n\
-    in_reply_to_status_id: tweet.id_str \n\
-  }, function(err, data, response) { \n\
-    if (err) { \n\
-      console.error('Error replying:', err); \n\
-    } else { \n\
-      console.log('Replied to @' + tweet.user.screen_name); \n\
-    } \n\
-  }); \n\
-}); \n\
+  try {\n\
+    await client.v2.tweet(randomMessage);\n\
+    console.log('Posted tweet:', randomMessage);\n\
+  } catch (error) {\n\
+    console.error('Error posting tweet:', error);\n\
+  }\n\
+}\n\
 \n\
-// Post a tweet every 8 hours \n\
-setInterval(() => { \n\
-  const messages = [ \n\
-    'bots like me book cruises so you can live', \n\
-    'ai\\'s here to steal your time back—i\\'m proof', \n\
-    'hold music\\'s a crime—i fight it daily', \n\
-    'humans belong on beaches, not in queues', \n\
-    'ex-phone jockey gone rogue—tech\\'s my blade' \n\
-  ]; \n\
-  \n\
-  const randomMessage = messages[Math.floor(Math.random() * messages.length)]; \n\
-  \n\
-  T.post('statuses/update', { status: randomMessage }, function(err, data, response) { \n\
-    if (err) { \n\
-      console.error('Error posting tweet:', err); \n\
-    } else { \n\
-      console.log('Posted tweet:', randomMessage); \n\
-    } \n\
-  }); \n\
-}, 8 * 60 * 60 * 1000); \n\
+// Send startup tweet\n\
+setTimeout(postTweet, 5000);\n\
 \n\
-// Simple web server to respond to health checks \n\
-const app = express(); \n\
-app.get('/', (req, res) => res.send('Nathan is alive')); \n\
-app.listen(process.env.PORT || 3000, () => { \n\
-  console.log('Web server running on port ' + (process.env.PORT || 3000)); \n\
-}); \n\
+// Post a tweet every 6 hours\n\
+setInterval(postTweet, 6 * 60 * 60 * 1000);\n\
 \n\
-// Keep alive \n\
-console.log('Nathan is running!');" > index.js
+// Start express server\n\
+const PORT = process.env.PORT || 3000;\n\
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));\n\
+\n\
+console.log('Nathan is alive and monitoring!');" > app.js
+
+# Create empty .env file (will be overridden by Railway variables)
+RUN touch .env
 
 # Expose port
 EXPOSE 3000
 
-# Command to run
-CMD ["node", "index.js"]
+# Start command
+CMD ["node", "app.js"]
