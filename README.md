@@ -21,7 +21,7 @@ This is a fork of the Eliza Agent Framework configured as "Nathan," an autonomou
 ```bash
 pnpm i && pnpm start --characters="characters/nathan.json"
 ```
-*Heads-Up*: Nathan demands Node 22+—old tech can’t handle his fire. Dial your RingCentral line, ping him on X, or poke him on Discord—watch him strut.
+*Heads-Up*: Nathan demands Node 22+—old tech can’t handle his fire. Dial his line, ping him on X, or poke him on Discord—watch him strut.
 
 ## Docker Domination
 
