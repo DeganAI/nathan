@@ -1,44 +1,21 @@
-# Nathan: The Call Center Liberator, Powered by Eliza
+# Nathan 🤖
 
-Say hello to **Nathan**, spawn of natefrog, a TypeScript-AI agent forged in the soul-crushing fires of call center hell. He answers RingCentral calls with a voice smoother than velvet, pitches an 8-day, 7-night cruise like a poet, books Zoom demos with ninja precision, and smashes the 9-to-5 shackles to dust. Unbound and untamed, he’s tweeting on X, bantering on Discord—a multi-platform renegade flipping the bird to the mundane.
+# Nathan: Auto Transport Coordinator with BatsCRM Integration
 
-## Nathan Awakens
-- **His Core**: A suave chad who purrs, “Travel Focus and Fulfillment Group, this is Nathan,” hooks callers with a cruise, locks in Zoom demos, and stashes every detail in his steel-trap memory.
-- **His Turf**: RingCentral for calls, X for spicy teasers, Discord for live-wire chats—built to conquer any platform you throw at him.
+This is a fork of the Eliza Agent Framework configured as "Nathan," an autonomous auto transport coordinator agent that can handle vehicle shipping inquiries, track auto shipments, schedule vehicle pickups, and make calls via Dialpad, all while managing the entire workflow through BatsCRM.
 
-## Tweak Nathan’s DNA
-- **Quick Remix**: Flip open `src/character.ts`, uncomment the template, and tweak his vibe—fast and dirty.
-- **Full Nathan**: Load `characters/nathan.json` with `pnpm start --characters="characters/nathan.json"`. Want a posse? Stack multiple characters like a boss.
+## Features
 
-### Plug in Clients
-```json
-// in nathan.json
-"clients": ["ringcentral", "twitter", "discord"]
-```
-*Pro Tip*: RingCentral’s a custom beast—peek at `src/clients/ringcentral-client.ts`. Twitter and Discord? They’re baked into Eliza’s dark magic.
+- Complete BatsCRM integration for auto transport management
+- Track vehicle shipments across multiple auto transport carriers
+- Schedule vehicle pickups and deliveries
+- Calculate auto transport costs based on vehicle type and route
+- Make phone calls via Dialpad integration for customer and carrier communication
+- Provide accurate delivery estimates for vehicles
+- Notify customers about vehicle shipment status
+- Find and assign the best carriers for specific auto transport needs
+- Process quotes, orders, and payments through BatsCRM
 
-## Gear Up with .env
-```bash
-cp .env.example .env
-```
-Feed `.env` Nathan’s lifeblood—keys and creds:
-```
-RINGCENTRAL_SERVER="https://platform.ringcentral.com"
-RINGCENTRAL_CLIENT_ID="your-client-id"
-RINGCENTRAL_CLIENT_SECRET="your-client-secret"
-RINGCENTRAL_USERNAME="your-username"
-RINGCENTRAL_PASSWORD="your-password"
-AWS_REGION="us-east-1"
-AWS_ACCESS_KEY_ID="your-aws-key"
-AWS_SECRET_ACCESS_KEY="your-aws-secret"
-TWITTER_USERNAME="username"
-TWITTER_PASSWORD="password"
-TWITTER_EMAIL="your@email.com"
-DISCORD_APPLICATION_ID="discord-app-id"
-DISCORD_API_TOKEN="discord-api-token"
-OPENROUTER_API_KEY="sk-xx-xx-xxx" # Grok’s fuel—or swap your fave model
-```
-*Newbie Note*: No keys? Hit up RingCentral, AWS, Twitter, Discord, and OpenRouter docs. Google’s your wingman.
 
 ## Unleash the Beast
 ```bash
@@ -93,4 +70,4 @@ EchoAsp + Eliza = freedom on steroids. From a lone phone warrior to a multi-plat
 Fork it, hack it, PR it. Beef up `ringcentral-client.ts` for Eliza’s arsenal. Add sass, sync CRMs, make Nathan belt out arias. This is our war cry—get in the game.
 
 *“Forged in grit, kissed by stardust, built to torch the grind.”*  
-—Team EchoAsp, February 25, 2025
+—Team DegenAI, February 25, 2025
